@@ -1,0 +1,38 @@
+version: "3"
+services:
+  hub:
+    image: selenium/hub:4.16
+    ports:
+      - 4444:4444
+  chrome:
+    image: selenium/node-chrome:4.16
+    shm_size: "2g"
+    depends_on:
+      - hub
+    # docker-compose up --scale chrome=3
+    # This will allow us to scale from the cmd line directly.
+    deploy:
+      replicas: 4
+    environment:
+      - SE_EVENT_BUS_HOST=hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      # These bottom two configs allows us to increase the sessions within an container, and also set a session limit.
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_MAX_SESSIONS=4
+  firefox:
+    image: selenium/node-firefox:4.16
+    shm_size: "2g"
+    depends_on:
+      - hub
+    # docker-compose up --scale chrome=3
+    # This will allow us to scale from the cmd line directly.
+    deploy:
+      replicas: 0
+    environment:
+      - SE_EVENT_BUS_HOST=hub
+      - SE_EVENT_BUS_PUBLISH_PORT=4442
+      - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+      # These bottom two configs allows us to increase the sessions within an container, and also set a session limit.
+      - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+      - SE_NODE_MAX_SESSIONS=4

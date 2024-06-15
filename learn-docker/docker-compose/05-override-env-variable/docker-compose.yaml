@@ -1,0 +1,10 @@
+version: "3"
+services:
+  squared-3:
+    image: hdarana/external-input
+    environment:
+      - number= 3
+  squared-5:
+    image: hdarana/external-input
+    environment:
+      - number= ${num}

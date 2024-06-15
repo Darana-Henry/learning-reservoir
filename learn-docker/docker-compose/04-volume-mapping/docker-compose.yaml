@@ -1,0 +1,14 @@
+version: "3"
+services:
+  nginx:
+    image: nginx
+    ports:
+      - 80:80
+  apline:
+    image: alpine
+    entrypoint: "wget http://nginx"
+    depends_on:
+      - nginx
+    working_dir: /my-dir
+    volumes:
+      - ~/vol: /my-dir
