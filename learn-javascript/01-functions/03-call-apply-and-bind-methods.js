@@ -98,3 +98,37 @@ book.apply(premium, premiumFlight);
 // apply: Use when you need to invoke a function with a specific this value and arguments passed as an array.
 // Both call and apply are powerful tools for function borrowing and flexible function invocation in different contexts,
 // making JavaScript more versatile and dynamic.
+
+// Bind Method
+// The bind method is used to create a new function that, when called, has its this keyword set to a specified value,
+// with a given sequence of arguments preceding any provided when the new function is called.
+
+// When to Use bind
+// Preserving this Context: It is useful when you need to ensure that a function retains a specific this context,
+// regardless of how it is called. This is common in event handlers and callbacks.
+// Partial Function Application: You can create a new function with some preset arguments,
+// leading to a simpler and more readable code, especially in functional programming styles.
+
+const bindedBusiness = book.bind(business);
+bindedBusiness(
+  faker.airline.seat(),
+  faker.person.fullName(),
+  faker.date.future()
+);
+
+const bindedPremium = book.bind(premium);
+bindedPremium(
+  faker.airline.seat(),
+  faker.person.fullName(),
+  faker.date.future()
+);
+
+const bindedEconomy = book.bind(economy);
+bindedEconomy(
+  faker.airline.seat(),
+  faker.person.fullName(),
+  faker.date.future()
+);
+
+const bindedBusinessWithSameSeat = book.bind(business, faker.airline.seat());
+bindedBusinessWithSameSeat(faker.person.fullName(), faker.date.future());
