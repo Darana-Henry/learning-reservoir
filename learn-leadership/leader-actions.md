@@ -23,7 +23,10 @@ These principles are essential for effective leadership and fostering a collabor
     - **Saying No**
       - Saying no is powerful, but do it tactfully. 
       - Avoid overburdening yourself with busy work, and focus on meaningful work when available.
-
-
+- **Thinking Strategically, Acting Tactically**
+    - **Thinking Strategically** - Understand the context and reasons behind the technology. The more you comprehend, the easier it is to build and test effectively.
+    - **Acting Tactically** - Draw up a detailed plan to completion, share it, get it reviewed, and make adjustments along the way. Sharing the plan makes it easier for others to see the progress and direction.
+- **Avoiding Overcommitment**
+    - Always give yourself buffer time to learn, fail, and regroup. Overpromising often leads to under-delivering.
 
 *Note: This is a growing list.*
