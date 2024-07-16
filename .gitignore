@@ -71,3 +71,5 @@ java_pid*
 build
 
 **/test-output/
+package-lock.json   
+package.json
