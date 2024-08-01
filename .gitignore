@@ -71,5 +71,6 @@ java_pid*
 build
 
 **/test-output/
+learn-javascript/03-numbers/package-lock.json
 package-lock.json   
 package.json
